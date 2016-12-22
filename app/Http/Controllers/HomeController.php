@@ -75,7 +75,13 @@ class HomeController extends Controller {
 		if(count($assigned)>0){
 			$type = 'edit';			
 		}
-		return View('admin.assignCars',compact('cars','drivers','assigned','type'));
+
+		$showSkip = false;
+		if(count($cars) == 0 && count($cars) == 0){
+			$showSkip = true;
+		}
+
+		return View('admin.assignCars',compact('cars','drivers','assigned','type','showSkip'));
 		//AssignedCars
 	}
 

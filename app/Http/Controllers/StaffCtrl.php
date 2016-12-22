@@ -4,16 +4,28 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
-use App\Workers;
-use App\WorkersTypes;
+use App\User;
+class StaffCtrl extends Controller {
 
-class workersCtrl extends Controller {
-
-	public function create(Request $request)
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function index()
 	{
-		$types = WorkersTypes::lists('name','id');
-		return View('admin.workers.create',compact('types','request'));
+		$staff = User::latest()->paginate(20);
+		return View('admin.staff.index',compact('staff'));
+	}
 
+	/**
+	 * Show the form for creating a new resource.
+	 *
+	 * @return Response
+	 */
+	public function create()
+	{
+		return View('admin.staff.create');
 	}
 
 	/**
@@ -23,8 +35,8 @@ class workersCtrl extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		Workers::create($request->all());
-		return redirect()->to(url('workerTypes').'/'.$request->type_id);
+		User::create($request->all());
+		return redirect()->to(Url('staff'));
 	}
 
 	/**
@@ -46,10 +58,9 @@ class workersCtrl extends Controller {
 	 */
 	public function edit($id)
 	{
-		$worker = Workers::findOrFail($id);
-		$types = WorkersTypes::lists('name','id');
-		return View('admin.workers.edit',compact('types','worker'));
-
+		$staff = User::findOrFail($id);
+		return View('admin.staff.edit',compact('staff'));
+		//
 	}
 
 	/**
@@ -60,10 +71,9 @@ class workersCtrl extends Controller {
 	 */
 	public function update($id,Request $request)
 	{
-		$worker = Workers::findOrFail($id);
-		$worker->update($request->all());
-		return redirect()->to(url('workerTypes').'/'.$request->type_id);
-
+		$staff = User::findOrFail($id);
+		$staff->update($request->all());
+		return redirect()->to(Url('staff'));
 	}
 
 	/**
@@ -74,10 +84,9 @@ class workersCtrl extends Controller {
 	 */
 	public function destroy($id)
 	{
-		$worker = Workers::findOrFail($id);
-		$worker->delete();
-		return redirect()->to(url('workerTypes').'/'.$request->type_id);
-
+		$staff = User::findOrFail($id);
+		$staff->delete();
+		return redirect()->to(Url('staff'));
 	}
 
 }

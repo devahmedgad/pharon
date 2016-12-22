@@ -10,11 +10,7 @@ return [
                 'driver' => 'eloquent',
                 'model' => 'App\User',
             ],
-            'salon' => [
-                'driver' => 'eloquent',
-                'model' => 'App\Salons',
-                'email' => 'client.emails.password',
-            ]
+            
         ],
 
         'password' => [

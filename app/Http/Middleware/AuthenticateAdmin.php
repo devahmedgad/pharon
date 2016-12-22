@@ -28,8 +28,8 @@ class AuthenticateAdmin {
 		if(!Session::has('skipAssign'))
 		{
 			$count = AssignedCars::whereBetween('created_at',[Carbon::now()->startOfDay(),Carbon::now()->endOfDay()])->count();
-			if($count == 0 && !$request->is('assignCars')){
-				 header('location: assignCars') ;
+			if($count == 0 && !$request->is('assignCars') && !$request->is('skipAssign')){
+				 die(header('location: assignCars')) ;
 			}
 		}
 

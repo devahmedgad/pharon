@@ -10,6 +10,12 @@
 		Route::resource('cars','CarsCtrl');
 		Route::get('logout','HomeController@Logout');
 		
+
+		Route::resource('workerTypes','WorkersTypeCtrl');
+		Route::resource('workers','workersCtrl');
+		Route::resource('staff','StaffCtrl');
+		Route::resource('pricing','PricingCtrl');
+
 		Route::get('assignCars','HomeController@assignCars');
 		Route::post('assignCars','HomeController@postAssign');
 
@@ -19,11 +25,7 @@
 			return redirect()->to(Url('/'));
 		});
 
-		Route::resource('workerTypes','WorkersTypeCtrl');
-		Route::resource('workers','workersCtrl');
-		
-
-
+		Route::resource('orders','OrdersCtrl');
 	});
 
 	/*Route::get('hash/{key}',function($key)

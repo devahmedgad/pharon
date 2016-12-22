@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\WorkersTypes;
+use App\Workers;
 
 class WorkersTypeCtrl extends Controller {
 
@@ -35,7 +36,8 @@ class WorkersTypeCtrl extends Controller {
 	public function show($id)
 	{
 		$workers = Workers::where('type_id',$id)->latest()->paginate(20);
-		return View('admin.workers.index',compact('workers'));
+
+		return View('admin.workers.index',compact('workers','id'));
 	}
 
 	public function edit($id)

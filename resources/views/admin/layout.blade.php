@@ -29,8 +29,8 @@
 					<li class="{{(Request::is('drivers*'))? "active" : ""}}"><a href="{{Url('drivers')}}">سائقين</a></li>
 					<li class="{{(Request::is('cars*'))   ? "active" : ""}}"><a href="{{Url('cars')}}">سيارات</a></li>
 					<li class="{{(Request::is('staff*'))  ? "active" : ""}}"><a href="{{Url('staff')}}">موظفين</a></li>
-					<li class="{{(Request::is('workerTypes*'))  ? "active" : ""}}"><a href="{{Url('workerTypes')}}">انواع عمال</a></li>
-					<li class="{{(Request::is('workers*'))  ? "active" : ""}}"><a href="{{Url('workers')}}">عمال</a></li>
+					<li class="{{(Request::is('worker*'))  ? "active" : ""}}"><a href="{{Url('workerTypes')}}">عمال</a></li>
+					<li class="{{(Request::is('pricing*')) ? "active" : ""}}"><a href="{{Url('pricing')}}">التسعير</a></li>
 					<li class="{{(Request::is('orders*')) ? "active" : ""}}"><a href="{{Url('orders')}}">اوردرات</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -53,6 +53,6 @@
 <script src="{!!Url('/')!!}/back/assets/global/plugins/jquery-migrate.min.js" type="text/javascript"></script>
 <script src="{!!Url('/')!!}/back/assets/global/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 <!-- BEGIN PAGE LEVEL PLUGINS -->
-<script src="{!!Url('/')!!}/back/assets/global/js/custom.js" type="text/javascript"></script>
+
 	@yield('inlineJs')
 </html>

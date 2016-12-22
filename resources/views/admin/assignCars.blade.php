@@ -46,7 +46,7 @@ use Carbon\Carbon;
 					@endforeach
 				</table>
 			        {!! Form::submit("حفظ", ['class' => 'btn btn-success']) !!}
-			        <a href="{{Url('skipAssign')}}" class="btn btn-danger">تخطى</a>
+			        <a href="{{Url('skipAssign')}}" class="btn btn-danger {{($showSkip == false)?"disabled":"" }}">تخطى</a>
 			{!! Form::close() !!}
 			</div>
 		</div>
