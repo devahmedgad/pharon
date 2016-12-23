@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Orders;
 use App\Pricing;
 use App\WorkersTypes;
+use App\OrdersWorkers;
+use App\OrdersItems;
 
 class OrdersCtrl extends Controller {
 
@@ -35,8 +37,27 @@ class OrdersCtrl extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		return redirect()->back()->withInput();
-		dd($request->all());
+		$orders = Orders::create($request->all());
+		if($request->has('workers')){
+			foreach ($request->workers as $type) {
+				OrdersWorkers::create([
+					'order_id'=>$orders->id,
+					'workersType_id'=>$type,
+					'number'=>$request->workers_number[$type],
+				]);
+			}
+		}
+
+		if($request->has('items')){
+			foreach ($request->items as $item) {
+				OrdersItems::create([
+					'order_id'=>$orders->id,
+					'item_id'=>$item,
+					'number'=>$request->items_number[$item],
+				]);
+			}
+		}
+		return redirect()->to(url('orders'));
 	}
 
 	/**
@@ -80,7 +101,9 @@ class OrdersCtrl extends Controller {
 	 */
 	public function destroy($id)
 	{
-		//
+		$order = Orders::findOrFail($id);
+		$order->delete();
+		return redirect()->to(url('orders'));
 	}
 
 }

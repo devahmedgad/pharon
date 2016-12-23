@@ -118,7 +118,7 @@ class HomeController extends Controller {
 					]);
 			}
 		}
-		return redirect()->back()->with(['msg'=>'تحم الحفظ بنجاح']);
+		return redirect()->to('/');
 	}	
 
 }		
