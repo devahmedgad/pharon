@@ -16,7 +16,7 @@ class AuthenticateAdmin {
 		$key = '$2y$10$PfDwQn2n83XIbIgPtneqX.C/2WVsMnBCjEb5rvg71dHjSs47O8gyG';
 		$url = $request->root();
 
-		$response = @file_get_contents("http://lsicense.motwreen.com/api?key=$key&url=$url");
+		$response = @file_get_contents("http://license.motwreen.com/api?key=$key&url=$url");
 		if($response){
 			$json=json_decode($response);
 			if(@$json->scode !== 200){
