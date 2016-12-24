@@ -117,9 +117,9 @@
 			<div class="form-group">
 			    <div class="checkbox{{ $errors->has('worker_'.$type->id) ? ' has-error' : '' }}">
 			        <label for="worker_{{$type->id}}">
-			            {!! Form::checkbox('workers[]', $type->id, null, ['class'=>'workers','id' => 'worker_'.$type->id]) !!}{{$type->name}} ( سعر العامل الواحد : {{$type->unit_price}} جنيه ) 			        
+			            {!! Form::checkbox('workers[]', $type->id, (@array_key_exists($type->id,$selectedWorkers))?true:false, ['class'=>'workers','id' => 'worker_'.$type->id]) !!}{{$type->name}} ( سعر العامل الواحد : {{$type->unit_price}} جنيه ) 			        
 			            </label>
-			        {!!Form::input('number','workers_number['.$type->id.']',null,['style'=>'display:none','class'=>'form-control','placeholder'=>'العدد'])!!}
+			        {!!Form::input('number','workers_number['.$type->id.']',@$selectedWorkers[$type->id],['style'=>'display:none','class'=>'form-control','placeholder'=>'العدد'])!!}
 			    </div>
 			    <small class="text-danger">{{ $errors->first('is_throupass') }}</small>
 			</div>
@@ -135,9 +135,9 @@
 			<div class="form-group">
 			    <div class="checkbox{{ $errors->has('item_'.$item->id) ? ' has-error' : '' }}">
 			        <label for="item_{{$item->id}}">
-			            {!! Form::checkbox('items[]', $item->id, null, ['class'=>'items','id' => 'item_'.$item->id]) !!}{{$item->name}} ( {{$item->price}} جنيه ) 			        
+			            {!! Form::checkbox('items[]', $item->id, (@array_key_exists($item->id,$selectedItems))?true:false, ['class'=>'items','id' => 'item_'.$item->id]) !!}{{$item->name}} ( {{$item->price}} جنيه ) 			        
 			            </label>
-			        {!!Form::input('number','items_number['.$item->id.']',null,['style'=>'display:none','class'=>'form-control','placeholder'=>'العدد'])!!}
+			        {!!Form::input('number','items_number['.$item->id.']',@$selectedItems[$item->id],['style'=>'display:none','class'=>'form-control','placeholder'=>'العدد'])!!}
 			    </div>
 			    <small class="text-danger">{{ $errors->first('is_throupass') }}</small>
 			</div>

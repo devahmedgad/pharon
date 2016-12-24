@@ -32,6 +32,7 @@
 					<li class="{{(Request::is('worker*'))  ? "active" : ""}}"><a href="{{Url('workerTypes')}}">عمال</a></li>
 					<li class="{{(Request::is('pricing*')) ? "active" : ""}}"><a href="{{Url('pricing')}}">التسعير</a></li>
 					<li class="{{(Request::is('orders*')) ? "active" : ""}}"><a href="{{Url('orders')}}">اوردرات</a></li>
+					<li class="{{(Request::is('traffic*')) ? "active" : ""}}"><a href="{{Url('traffic')}}">خط السير</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
 				<li class="dropdown">

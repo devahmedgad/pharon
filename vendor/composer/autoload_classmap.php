@@ -10,6 +10,7 @@ return array(
     'CreateAssignedCarsTable' => $baseDir . '/database/migrations/2016_12_13_003207_create_assigned_cars_table.php',
     'CreateCarsTable' => $baseDir . '/database/migrations/2016_12_04_154320_create_cars_table.php',
     'CreateDriversTable' => $baseDir . '/database/migrations/2016_12_04_154302_create_drivers_table.php',
+    'CreateOrderAssignsTable' => $baseDir . '/database/migrations/2016_12_23_094929_create_order_assigns_table.php',
     'CreateOrdersItemsTable' => $baseDir . '/database/migrations/2016_12_23_050146_create_orders_items_table.php',
     'CreateOrdersTable' => $baseDir . '/database/migrations/2016_12_22_162523_create_orders_table.php',
     'CreateOrdersWorkersTable' => $baseDir . '/database/migrations/2016_12_23_032125_create_orders_workers_table.php',

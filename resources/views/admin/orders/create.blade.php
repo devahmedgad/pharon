@@ -4,7 +4,7 @@
 		<div class="panel-heading">اضافه اوردر جديد</div>
 		<div class="panel-body">
 			{!! Form::open(['method' => 'POST', 'action' => 'OrdersCtrl@store', 'class' => 'form-horizontal']) !!}
-			 	@include('admin.orders._form')
+			 	@include('admin.orders._form',['type'=>'add'])
 			{!! Form::close() !!}	
 		</div>
 	</div>

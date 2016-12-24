@@ -26,6 +26,12 @@
 		});
 
 		Route::resource('orders','OrdersCtrl');
+		Route::resource('traffic','TrafficCtrl');
+		Route::get('traffic/{id}/assign','TrafficCtrl@assign');
+		Route::get('traffic/{id}/cancel','TrafficCtrl@cancel_order');
+		Route::get('traffic/assign/{id}/cancel','TrafficCtrl@cancel_assign');
+
+		
 	});
 
 	/*Route::get('hash/{key}',function($key)

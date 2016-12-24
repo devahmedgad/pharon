@@ -1,5 +1,7 @@
 @extends('admin.layout')
 	@section('content')
+	<a href="{{Url('/')}}/orders/create" class="btn btn-success">أوردر جديد</a>
+	<br><br>
 		<div class="panel panel-primary">
 			<div class="panel-heading text-center">أوردرات</div>
 			<div class="panel-body">

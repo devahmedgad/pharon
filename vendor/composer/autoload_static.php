@@ -482,6 +482,7 @@ class ComposerStaticInit265e8eccb5c018a1b09c7ab71f66aff6
         'CreateAssignedCarsTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_13_003207_create_assigned_cars_table.php',
         'CreateCarsTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_04_154320_create_cars_table.php',
         'CreateDriversTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_04_154302_create_drivers_table.php',
+        'CreateOrderAssignsTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_23_094929_create_order_assigns_table.php',
         'CreateOrdersItemsTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_23_050146_create_orders_items_table.php',
         'CreateOrdersTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_22_162523_create_orders_table.php',
         'CreateOrdersWorkersTable' => __DIR__ . '/../..' . '/database/migrations/2016_12_23_032125_create_orders_workers_table.php',
