@@ -53,8 +53,8 @@
 				<tr>
 					<td>{{$assign->id}}</td>
 					<td>{{$assign->order_id}}</td>
-					<td>{{$assign->assignes->driver->name}}</td>
-					<td>{{$assign->assignes->car->name}}</td>
+					<td>وجيه</td>
+					<td>فرعون 102</td>
 					<td>{{($assign->total - $assign->discount) + $assign->plus}} جنيه</td>
 					<td><a href="{{Url('/')}}/traffic/assign/{{$assign->id}}/cancel">إلغاء</a></td>
 				</tr>

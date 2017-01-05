@@ -16,14 +16,6 @@
 		Route::resource('staff','StaffCtrl');
 		Route::resource('pricing','PricingCtrl');
 
-		Route::get('assignCars','HomeController@assignCars');
-		Route::post('assignCars','HomeController@postAssign');
-
-		Route::get('skipAssign',function()
-		{
-			Session::put('skipAssign','1');
-			return redirect()->to(Url('/'));
-		});
 
 		Route::resource('orders','OrdersCtrl');
 		Route::resource('traffic','TrafficCtrl');

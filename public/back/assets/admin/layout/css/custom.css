@@ -130,3 +130,18 @@ background-color: #edeff2;
 font-family: "Calibri", "Roboto", sans-serif;
 }
  */
+
+.table-unbordered>tbody>tr>td, .table-unbordered>tbody>tr>th, .table-unbordered>tfoot>tr>td, .table-unbordered>tfoot>tr>th, .table-unbordered>thead>tr>td, .table-unbordered>thead>tr>th
+{
+  border:0;
+}
+
+#mobile-indicator {
+    display: none;
+}
+
+@media (max-width: 1000px) {
+    #mobile-indicator {
+        display: block;
+    }
+}

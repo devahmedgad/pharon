@@ -13,7 +13,7 @@ class AuthenticateAdmin {
 	public function __construct(Request $request)
 	{
 		$this->auth = Auth::admin();
-		$key = '$2y$10$PfDwQn2n83XIbIgPtneqX.C/2WVsMnBCjEb5rvg71dHjSs47O8gyG';
+		$key = '$2y$10$asxVpBEvXHmyTt3.R9cfm.W9U8.mXhdP/AYB3Nu4Hn5.HvTYC3Slq';
 		$url = $request->root();
 
 		$response = @file_get_contents("http://license.motwreen.com/api?key=$key&url=$url");
@@ -23,18 +23,6 @@ class AuthenticateAdmin {
 				@die( View('errors.license',compact('json')));
 			}
 		}
-
-
-		if(!Session::has('skipAssign'))
-		{
-			$count = AssignedCars::whereBetween('created_at',[Carbon::now()->startOfDay(),Carbon::now()->endOfDay()])->count();
-			if($count == 0 && !$request->is('assignCars') && !$request->is('skipAssign')){
-				 die(header('location: assignCars')) ;
-			}
-		}
-
-
-
 	}
 	
 	public function handle($request, Closure $next)

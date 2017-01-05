@@ -37,6 +37,7 @@ class OrdersCtrl extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		dd($request->all());
 		$orders = Orders::create($request->all());
 		if($request->has('workers')){
 			foreach ($request->workers as $type) {

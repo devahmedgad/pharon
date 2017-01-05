@@ -1,188 +1,447 @@
+<div id="mobile-indicator"></div>
 <div class="col-md-12">
-    <div class="form-group{{ $errors->has('client_name') ? ' has-error' : '' }}">
-        {!! Form::label('client_name', 'اسم العميل') !!}
-        {!! Form::text('client_name', null, ['class' => 'form-control', 'required' => 'required']) !!}
-        <small class="text-danger">{{ $errors->first('client_name') }}</small>
-    </div>
-</div>
+	<div class="text-center" style="font-size: 20px"> <strong>فـــرعـــــــــون </strong>لخدمات النقل </div><br>
+	<p class="text-center">إيصال استلام نقديه و تحديد . رقم الاوردر (<code>#100</code>) </p><br>	
 
-<div class="col-md-6">
-	<div class="form-group{{ $errors->has('order_date') ? ' has-error' : '' }}">
-	    {!! Form::label('order_date', 'تاريخ الأوردر') !!}
-	    {!! Form::input('date','order_date', null, ['class' => 'form-control', 'required' => 'required']) !!}
-	    <small class="text-danger">{{ $errors->first('order_date') }}</small>
-	</div>
-</div>
+<table class="table table-bordered table-responsive" id="summry">
+	<tr>
+		<td>
+			ميعاد الأوردر يوم ( {!!Form::text('order_day',null,['style'=>'width:75px'])!!} )
+		</td>
+		<td>
+			الموافق {!!Form::input('date','order_date',null,['style'=>'width: 150px;line-height:1 !important'])!!}
+		</td>
+		<td>
+			الساعه {!!Form::input('time','order_time',null,['style'=>'width:100px;line-height:1 !important'])!!}
+		</td>
+		<td>
+			إجمالي المبلغ المتفق عليه ( {!!Form::input('number','totalOrder',null,['style'=>'width:100px;line-height:1 !important'])!!} )  جنيه
+		</td>
+		<td>
+			غير الإكراميه
+		</td>		
+	</tr>
+</table>
 
-<div class="col-md-6">
-	<div class="form-group{{ $errors->has('order_time') ? ' has-error' : '' }}">
-	    {!! Form::label('order_time', 'وقت الأوردر') !!}
-	    {!! Form::input('time','order_time', null, ['class' => 'form-control', 'required' => 'required']) !!}
-	    <small class="text-danger">{{ $errors->first('order_time') }}</small>
-	</div>
-</div>
+<table class="table table-bordered table-responsive" id="client">
+<tbody>
+	<tr>
+		<td> اسم العميل {!!Form::text('client_name',null)!!} </td>
+		<td> الهاتف 1 {!!Form::text('phone1',null)!!} </td>
+		<td> الهاتف 2 {!!Form::text('phone2',null)!!} </td>
+	</tr>
+	<tr>
+		<td>العنوان من {!!Form::text('address_from',null)!!}  </td>
+		<td>العنوان إلى{!!Form::text('address_to',null)!!}  </td>
+	</tr>
+	<tr><td></td></tr>
+	<tr>
+		<td>الدور من{!!Form::input('number','floor_from',null)!!}  </td>
+		<td>الدور إلى{!!Form::input('number','floor_to',null)!!}</td>
+	</tr>
+</tbody>
+<tbody>
+	<tr>
+		<td>{!!Form::checkbox('elevator',0)!!} يوجد أسانسير</td>
 
-<div class="col-md-6">
-	<div class="form-group{{ $errors->has('phone1') ? ' has-error' : '' }}">
-	    {!! Form::label('phone1', 'رقم التيليفون 1') !!}
-	    {!! Form::text('phone1', null, ['class' => 'form-control', 'required' => 'required']) !!}
-	    <small class="text-danger">{{ $errors->first('phone1') }}</small>
-	</div>
-</div>
+		<td>{!!Form::checkbox('wide_stares',0)!!} السلم واسع</td>
+		
+		<td >{!!Form::checkbox('passthru',0)!!} يوجد ممر</td>
+		
+	</tr>
+</tbody>
+</table>
 
-<div class="col-md-6">
-	<div class="form-group{{ $errors->has('phone2') ? ' has-error' : '' }}">
-	    {!! Form::label('phone2', 'رقم التيليفون 2') !!}
-	    {!! Form::text('phone2', null, ['class' => 'form-control', 'required' => 'required']) !!}
-	    <small class="text-danger">{{ $errors->first('phone2') }}</small>
-	</div>
-</div>
 
-<div class="col-md-9">
-	<div class="form-group{{ $errors->has('address_from') ? ' has-error' : '' }}">
-	    {!! Form::label('address_from', 'العنوان : من') !!}
-	    {!! Form::text('address_from', null, ['class' => 'form-control', 'required' => 'required']) !!}
-	    <small class="text-danger">{{ $errors->first('address_from') }}</small>
-	</div>
+<table class="table table-bordered table-responsive" id="items">
+	<tr>
+		<td>الأثاث</td>
+		<td>حجره نوم</td>
+		<td>حجره أطفال</td>
+		<td>سفره</td>
+		<td>نيش</td>
+		<td>بوفيه</td>
+		<td>انتريه</td>
+		<td>صالون</td>
+		<td>ليفينج</td>
+		<td>ركنه</td>
+		<td>مطبخ</td>
+		<td>مكتب</td>
+		<td>مكتبه</td>
+		<td>الكراتين</td>
+		<td>الشنط</td>
+	</tr>
+	<tr>
+		<td>عدد</td>
+		<td>{!!Form::checkbox('bedroom',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('kidroom',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('dinnerroom',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('neesh',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('bofue',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('antreh',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('salon',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('living',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('rokna',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('kitchen',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('office',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('library',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('cartoons',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('cases',0,null,['class'=>'furntire'])!!}</td>
+	</tr>
+	<tr>
+		<td>الأجهزه</td>
+		<td>ثلاجه</td>
+		<td>ديب فريزر</td>
+		<td>غساله</td>
+		<td>بوتوجاز</td>
+		<td>غساله أطباق</td>
+		<td>سخان</td>
+		<td>تيليفزيون</td>
+		<td>تكييف</td>
+		<td>ميكروويف</td>
+		<td>نجف</td>
+		<td>سجاد</td>
+		<td>مراتب</td>
+		<td>طرابيزه</td>
+		<td>جزامه</td>
+	</tr>
+	<tr>
+		<td>عدد</td>
+		<td>{!!Form::checkbox('fridge',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('deep_freezer',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('wacher',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('cocker',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('dish_wacher',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('heater',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('tv',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('condiner',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('microwave',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('nagaf',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('carpet',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('martb',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('tables',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('shoser',0,null,['class'=>'devices'])!!}</td>
+	</tr>
+</table>
 </div>
+<div class="col-md-7">
+	<table class="table table-bordered table-responsive" id="sum">
+		<tr>
+			<td width="1%">1</td>
+			<td width="30%">العمال</td>
+			<td width="10%"></td>
+			<td width="">{!!Form::input('number','workers',null,['style'=>'width:100px;line-height:1 !important','class'=>'total'])!!}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td width="1%">2</td>
+			<td width="1%">العمال (نقله إضافيه)</td>
+			<td width="10%"></td>
+			<td width="">{!!Form::input('number','workers_plus',null,['style'=>'width:100px;line-height:1 !important','class'=>'total'])!!}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td width="1%">3</td>
+			<td width="1%">السياره الأساسيه</td>
+			<td width="10%"></td>
+			<td width="">{!!Form::input('number','car',null,['style'=>'width:100px;line-height:1 !important','class'=>'total'])!!}</td>
+			<td></td>
+		</tr>
+		<tr>
+			<td width="1%">4</td>
+			<td width="35%">السياره  (نقله إضافيه)</td>
+			<td width="10%"></td>
+			<td width="">{!!Form::input('number','car_plus',null,['style'=>'width:100px;line-height:1 !important','class'=>'total'])!!}</td>
+			<td></td>
+		</tr>
 
-<div class="col-md-3">
-	<div class="form-group{{ $errors->has('floor_from') ? ' has-error' : '' }}">
-	    {!! Form::label('floor_from', 'الدور') !!}
-	    {!! Form::input('number','floor_from', null, ['class' => 'form-control', 'required' => 'required']) !!}
-	    <small class="text-danger">{{ $errors->first('floor_from') }}</small>
-	</div>
+		<tr>
+			<td width="1%">5</td>
+			<td width="35%">النجار 100</td>
+			<td width="10%">X</td>
+			<td width="">{!!Form::input('number','carpenter_num',null,['style'=>'width:100px;line-height:1 !important'])!!}</td>
+			<td width=""> = {!!Form::input('number','carpenter',null,['style'=>'width:100px;line-height:1 !important','class'=>'total'])!!}</td>
+		</tr>
+
+		<tr>
+			<td width="1%">6</td>
+			<td width="35%">المطبخ 100</td>
+			<td width="10%">X</td>
+			<td width="">{!!Form::input('number','kitchen_worker_num',null,['style'=>'width:100px;line-height:1 !important'])!!}</td>
+			<td width=""> = {!!Form::input('number','kitchen_worker',null,['style'=>'width:100px;line-height:1 !important','class'=>'total'])!!}</td>
+		</tr>
+
+		<tr>
+			<td width="1%">7</td>
+			<td width="35%">النجف 20</td>
+			<td width="10%">X</td>
+			<td width="">{!!Form::input('number','nagaf_worker_num',null,['style'=>'width:100px;line-height:1 !important'])!!}</td>
+			<td width=""> = {!!Form::input('number','nagaf_worker',null,['style'=>'width:100px;line-height:1 !important','class'=>'total'])!!}</td>
+		</tr>
+
+		<tr>
+			<td width="1%">8</td>
+			<td width="35%">تكييف 350</td>
+			<td width="10%">X</td>
+			<td width="">{!!Form::input('number','condiner_tech_num',null,['style'=>'width:100px;line-height:1 !important'])!!}</td>
+			<td width=""> = {!!Form::input('number','condiner_tech',null,['style'=>'width:100px;line-height:1 !important','class'=>'total'])!!}</td>
+		</tr>
+
+		<tr>
+			<td width="1%">9</td>
+			<td width="35%">تغليف 150 خامات + 50 للعامل</td>
+			<td width="10%">X</td>
+			<td width="">{!!Form::input('number','casing_num',null,['style'=>'width:100px;line-height:1 !important'])!!}</td>
+			<td width=""> = {!!Form::input('number','casing',null,['style'=>'width:100px;line-height:1 !important','class'=>'total'])!!}</td>
+		</tr>
+		<tr>
+			
+			<td colspan="3" width="10%"> <p class="text-right">الإجمالى</p></td>
+			<td colspan="2" width="">= {!!Form::input('number','total',null,['style'=>'width:250px;line-height:1 !important','id'=>'totalOfAll'])!!}</td>
+		</tr>
+	</table>
 </div>
-
-<div class="col-md-9">
-	<div class="form-group{{ $errors->has('address_to') ? ' has-error' : '' }}">
-	    {!! Form::label('address_to', 'العنوان : إلى') !!}
-	    {!! Form::text('address_to', null, ['class' => 'form-control', 'required' => 'required']) !!}
-	    <small class="text-danger">{{ $errors->first('address_to') }}</small>
-	</div>
-</div>
-
-<div class="col-md-3">
-	<div class="form-group{{ $errors->has('floor_to') ? ' has-error' : '' }}">
-	    {!! Form::label('floor_to', 'الدور') !!}
-	    {!! Form::input('number','floor_to', null, ['class' => 'form-control', 'required' => 'required']) !!}
-	    <small class="text-danger">{{ $errors->first('floor_to') }}</small>
-	</div>
+<div class="col-md-5">
+<br>
+<br>
+<br>
+<img src="{{Url('/')}}/image.jpg" class="col-md-12" alt="">
 </div>
 
 <div class="col-md-12">
-	<div class="form-group{{ $errors->has('rooms_number') ? ' has-error' : '' }}">
-	    {!! Form::label('rooms_number', 'عدد الغرف') !!}
-	    {!! Form::text('rooms_number', null, ['class' => 'form-control', 'required' => 'required']) !!}
-	    <small class="text-danger">{{ $errors->first('rooms_number') }}</small>
-	</div>
+	<label for="">ملاحظات</label>
+	{!!Form::textarea('notes',null,['style'=>'width:100%;resize:none'])!!}
+
 </div>
 
-<div class="col-md-4">
-	<div class="form-group">
-	    <div class="checkbox{{ $errors->has('is_elevator') ? ' has-error' : '' }}">
-	        <label for="is_elevator">
-	            {!! Form::checkbox('is_elevator', '1', null, ['id' => 'is_elevator']) !!} يوجد اسانسير
-	        </label>
-	    </div>
-	    <small class="text-danger">{{ $errors->first('is_elevator') }}</small>
-	</div>
-</div>
-
-<div class="col-md-4">
-	<div class="form-group">
-	    <div class="checkbox{{ $errors->has('is_wide_stares') ? ' has-error' : '' }}">
-	        <label for="is_wide_stares">
-	            {!! Form::checkbox('is_wide_stares', '1', null, ['id' => 'is_wide_stares']) !!} السلم واسع
-	        </label>
-	    </div>
-	    <small class="text-danger">{{ $errors->first('is_wide_stares') }}</small>
-	</div>
-</div>
-
-<div class="col-md-4">
-	<div class="form-group">
-	    <div class="checkbox{{ $errors->has('is_throupass') ? ' has-error' : '' }}">
-	        <label for="is_throupass">
-	            {!! Form::checkbox('is_throupass', '1', null, ['id' => 'is_throupass']) !!} يوجد ممر
-	        </label>
-	    </div>
-	    <small class="text-danger">{{ $errors->first('is_throupass') }}</small>
-	</div>
-</div>
-<div class="col-md-12">
-	<fieldset>
-		<legend>عمال:</legend>
-		@foreach($worker_types as $type)
-			<div class="form-group">
-			    <div class="checkbox{{ $errors->has('worker_'.$type->id) ? ' has-error' : '' }}">
-			        <label for="worker_{{$type->id}}">
-			            {!! Form::checkbox('workers[]', $type->id, (@array_key_exists($type->id,$selectedWorkers))?true:false, ['class'=>'workers','id' => 'worker_'.$type->id]) !!}{{$type->name}} ( سعر العامل الواحد : {{$type->unit_price}} جنيه ) 			        
-			            </label>
-			        {!!Form::input('number','workers_number['.$type->id.']',@$selectedWorkers[$type->id],['style'=>'display:none','class'=>'form-control','placeholder'=>'العدد'])!!}
-			    </div>
-			    <small class="text-danger">{{ $errors->first('is_throupass') }}</small>
-			</div>
-		@endforeach
-	</fieldset>
+<div class="col-md-12 text-center">
+<br>
+	<button class="btn btn-success"> تأكيد </button>
+	<button class="btn btn-warning"> إنتظار </button>
+	<button class="btn btn-danger"> إلغاء </button>
+<br>
+<br><br>
 </div>
 
 
-<div class="col-md-12">
-	<fieldset>
-		<legend>تفاصيل:</legend>
-		@foreach($items as $item)
-			<div class="form-group">
-			    <div class="checkbox{{ $errors->has('item_'.$item->id) ? ' has-error' : '' }}">
-			        <label for="item_{{$item->id}}">
-			            {!! Form::checkbox('items[]', $item->id, (@array_key_exists($item->id,$selectedItems))?true:false, ['class'=>'items','id' => 'item_'.$item->id]) !!}{{$item->name}} ( {{$item->price}} جنيه ) 			        
-			            </label>
-			        {!!Form::input('number','items_number['.$item->id.']',@$selectedItems[$item->id],['style'=>'display:none','class'=>'form-control','placeholder'=>'العدد'])!!}
-			    </div>
-			    <small class="text-danger">{{ $errors->first('is_throupass') }}</small>
-			</div>
-		@endforeach
-	</fieldset>
-</div>
-<div class="btn-group pull-right">
-    {!! Form::submit("Add", ['class' => 'btn btn-success']) !!}
-</div>
-<!-- Latest compiled and minified CSS & JS -->
 @section('inlineJs')
-<script type="text/javascript">
-$(document).ready(function(){
+<!-- Latest compiled and minified CSS & JS -->
+<script>
 
-	$('.workers').each(function (key,val) {
-		var checks = $('.workers')
-		if(checks[key].checked)
-		{
-			$(this).parent().parent().find('input[type="number"]').show('slow');
+
+$(document).ready(function() {
+
+    if ($('#mobile-indicator').is(':visible')) {
+		TransposeTable('main');
+		TransposeTable('client');
+		TransposeTable('summry');
+		TransposeTable('items');
+		var img = $('img').remove();
+		var tbod =$('#client').find('tbody');
+		tbod[1].remove();
+	}else{
+		var tr =$('#client').find('tbody').find('tr');
+		tr[2].remove();
+	}
+});
+
+function TransposeTable(tableId)
+{        
+    var tbl = $('#' + tableId);
+    var tbody = tbl.find('tbody');
+    var oldWidth = tbody.find('tr:first td').length;
+    var oldHeight = tbody.find('tr').length;
+    var newWidth = oldHeight;
+    var newHeight = oldWidth;
+
+    var jqOldCells = tbody.find('td');        
+
+    var newTbody = $("<tbody></tbody>");
+    for(var y=0; y<newHeight; y++)
+    {
+        var newRow = $("<tr></tr>");
+        for(var x=0; x<newWidth; x++)
+        {
+            newRow.append(jqOldCells.eq((oldWidth*x)+y));
+        }
+        newTbody.append(newRow);
+    }
+
+    tbody.replaceWith(newTbody);        
+}
+
+
+
+/** ************************* Calculate ******************************** **/
+$('input[name="floor_from"]').on('change',function() {
+	calculateFloors();
+});
+$('input[name="floor_to"]').on('change',function() {
+	calculateFloors();
+});
+
+
+var tot = $('.total');
+
+$('body').on("change",function(){
+	var sum = 0;
+	$('.total').each(function(){
+		if($(this).val() != 'NaN' && $(this).val() != ""){
+			sum += parseInt($(this).val());
 		}
+	$('#totalOfAll').val(sum);
+	});
+});
+
+$('input[name="carpenter_num"]').on('change',function(){
+	$('input[name="carpenter"]').val($(this).val()*100)
+});
+
+$('input[name="kitchen_worker_num"]').on('change',function(){
+	$('input[name="kitchen_worker"]').val($(this).val()*100)
+});
+
+$('input[name="nagaf_worker_num"]').on('change',function(){
+	$('input[name="nagaf_worker"]').val($(this).val()*20)
+});
+
+$('input[name="condiner_tech_num"]').on('change',function(){
+	$('input[name="condiner_tech"]').val($(this).val()*350)
+});
+
+$('input[name="casing_num"]').on('change',function(){
+	$('input[name="casing"]').val($(this).val()*200)
+});
+
+
+function calculateFloors() {
+	var floor_from = $('input[name="floor_from"]').val();
+	var floor_to = $('input[name="floor_to"]').val();
+	var total = 0 ;
+	if(floor_from == 1 && floor_to == 1){
+		total = 550;
+	}else if(floor_from  <= 2 && floor_to <= 2){
+		total = 600;
+	}else if(floor_from  <= 3 && floor_to <= 3){
+		total = 700;
+	}else if(floor_from  <= 4){
+		if(floor_to  <= 4){
+			total = 800;
+		}else if(floor_to  <= 5){
+			total = 900;
+		}else if(floor_to  <= 6){
+			total = 950;
+		}else if(floor_to  <= 7){
+			total = 1000;
+		}else if(floor_to  <= 8){
+			total = 1050;
+		}else if(floor_to  <= 9){
+			total = 1100;
+		}else if(floor_to  <= 10){
+			total = 1200;
+		}else if(floor_to  <= 11){
+			total = 1300;
+		}else if(floor_to  <= 12){
+			total = 1500;
+		}else if(floor_to  <= 13){
+			total = 1600;
+		}
+	}else if(floor_from  == 5 && floor_to == 5){
+		total = 1000;
+	}else if(floor_from  <= 6 && floor_to == 6){
+		total = 1050;
+	}else if(floor_from  <= 7 && floor_to == 7){
+		total = 1100;
+	}else if(floor_from  <= 8 && floor_to == 8){
+		total = 1250;
+	}else if(floor_from  <= 9 && floor_to == 9){
+		total = 1400;
+	}else if(floor_from  <= 10 && floor_to == 10){
+		total = 1600;
+	}else if(floor_from  <= 11 && floor_to == 11){
+		total = 1800;
+	}else if(floor_from  <= 12 && floor_to == 12){
+		total = 2100;
+	}else if(floor_from  <= 13 && floor_to == 13){
+		total = 2300;
+	}
+
+
+	if(floor_to == 1 && floor_from == 1){
+		total = 550;
+	}else if(floor_to  <= 2 && floor_from <= 2){
+		total = 600;
+	}else if(floor_to  <= 3 && floor_from <= 3){
+		total = 700;
+	}else if(floor_to  <= 4){
+		if(floor_from  <= 4){
+			total = 800;
+		}else if(floor_from  <= 5){
+			total = 900;
+		}else if(floor_from  <= 6){
+			total = 950;
+		}else if(floor_from  <= 7){
+			total = 1000;
+		}else if(floor_from  <= 8){
+			total = 1050;
+		}else if(floor_from  <= 9){
+			total = 1100;
+		}else if(floor_from  <= 10){
+			total = 1200;
+		}else if(floor_from  <= 11){
+			total = 1300;
+		}else if(floor_from  <= 12){
+			total = 1500;
+		}else if(floor_from  <= 13){
+			total = 1600;
+		}
+	}else if(floor_to  == 5 && floor_from == 5){
+		total = 1000;
+	}else if(floor_to  <= 6 && floor_from == 6){
+		total = 1050;
+	}else if(floor_to  <= 7 && floor_from == 7){
+		total = 1100;
+	}else if(floor_to  <= 8 && floor_from == 8){
+		total = 1250;
+	}else if(floor_to  <= 9 && floor_from == 9){
+		total = 1400;
+	}else if(floor_to  <= 10 && floor_from == 10){
+		total = 1600;
+	}else if(floor_to  <= 11 && floor_from == 11){
+		total = 1800;
+	}else if(floor_to  <= 12 && floor_from == 12){
+		total = 2100;
+	}else if(floor_to  <= 13 && floor_from == 13){
+		total = 2300;
+	}
+	$('input[name="workers"]').val(total);
+	
+	/*var totalOfTotals = 0 ;
+	$(".total").each(function() {
+		$(this).change(function(){
+
+       		 alert($(this).val());
+		});
+    });
+
+    $(".total").change(function(){
+	    $(this).parents('form') // For each element, pick the ancestor that's a form tag.
+	           .find('.total') // Find all the input elements under those.
+	           .each(function(i) {
+	        alert(this.name + " = " + i);
+	    });
 	});
 
-	$('.workers').on('change',function(){
-		if($(this).prop('checked') == true){
-			$(this).parent().parent().find('input[type="number"]').show('slow');
-		}else{
-			$(this).parent().parent().find('input[type="number"]').hide('slow');
-		}
-	});
 
-	$('.items').each(function (key,val) {
-		var items = $('.items')
-		if(items[key].checked)
-		{
-			$(this).parent().parent().find('input[type="number"]').show('slow');
-		}
-	});
+	$('.total').change(function(totals){
+		$.each(totals,function(key,val){
+			totalOfTotals += val;
+		});
+		console.log('changed');
+	});*/
 
-	$('.items').on('change',function(){
-		if($(this).prop('checked') == true){
-			$(this).parent().parent().find('input[type="number"]').show('slow');
-		}else{
-			$(this).parent().parent().find('input[type="number"]').hide('slow');
-		}
-	});
-})
+}
+/** ************************* Calculate ******************************** **/
 </script>
 @endsection
+ 
