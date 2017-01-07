@@ -42,11 +42,11 @@
 </tbody>
 <tbody>
 	<tr>
-		<td>{!!Form::checkbox('elevator',0)!!} يوجد أسانسير</td>
+		<td>{!!Form::checkbox('elevator',1)!!} يوجد أسانسير</td>
 
-		<td>{!!Form::checkbox('wide_stares',0)!!} السلم واسع</td>
+		<td>{!!Form::checkbox('wide_stares',1)!!} السلم واسع</td>
 		
-		<td >{!!Form::checkbox('passthru',0)!!} يوجد ممر</td>
+		<td >{!!Form::checkbox('passthru',1)!!} يوجد ممر</td>
 		
 	</tr>
 </tbody>
@@ -73,20 +73,20 @@
 	</tr>
 	<tr>
 		<td>عدد</td>
-		<td>{!!Form::checkbox('bedroom',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('kidroom',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('dinnerroom',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('neesh',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('bofue',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('antreh',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('salon',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('living',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('rokna',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('kitchen',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('office',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('library',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('cartoons',0,null,['class'=>'furntire'])!!}</td>
-		<td>{!!Form::checkbox('cases',0,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('bedroom',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('kidroom',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('dinnerroom',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('neesh',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('bofue',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('antreh',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('salon',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('living',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('rokna',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('kitchen',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('office',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('library',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('cartoons',1,null,['class'=>'furntire'])!!}</td>
+		<td>{!!Form::checkbox('cases',1,null,['class'=>'furntire'])!!}</td>
 	</tr>
 	<tr>
 		<td>الأجهزه</td>
@@ -107,20 +107,20 @@
 	</tr>
 	<tr>
 		<td>عدد</td>
-		<td>{!!Form::checkbox('fridge',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('deep_freezer',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('wacher',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('cocker',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('dish_wacher',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('heater',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('tv',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('condiner',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('microwave',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('nagaf',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('carpet',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('martb',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('tables',0,null,['class'=>'devices'])!!}</td>
-		<td>{!!Form::checkbox('shoser',0,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('fridge',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('deep_freezer',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('wacher',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('cocker',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('dish_wacher',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('heater',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('tv',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('condiner',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('microwave',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('nagaf',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('carpet',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('martb',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('tables',1,null,['class'=>'devices'])!!}</td>
+		<td>{!!Form::checkbox('shoser',1,null,['class'=>'devices'])!!}</td>
 	</tr>
 </table>
 </div>
@@ -216,9 +216,9 @@
 
 <div class="col-md-12 text-center">
 <br>
-	<button class="btn btn-success"> تأكيد </button>
-	<button class="btn btn-warning"> إنتظار </button>
-	<button class="btn btn-danger"> إلغاء </button>
+	<button class="btn btn-success" name="status" value="0"> تأكيد </button>
+	<button class="btn btn-warning" name="status" value="1"> إنتظار </button>
+	<button class="btn btn-danger" name="status" value="2"> إلغاء </button>
 <br>
 <br><br>
 </div>

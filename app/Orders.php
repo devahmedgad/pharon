@@ -5,7 +5,7 @@ use Illuminate\Database\Eloquent\Model;
 class Orders extends Model {
 
 	protected $table = 'orders' ;
-	protected $fillable = ['client_name','phone1','phone2','address_from','address_to','floor_from','floor_to','rooms_number','is_elevator','is_wide_stares','is_throupass','order_date','order_time','discount','discount_reson','plus_reson','plus_reson','status'];
+	protected $fillable = ["order_day","order_date","order_time","totalOrder","client_name","phone1","phone2","address_from","address_to","floor_from","floor_to","elevator","wide_stares","passthru","bedroom","kidroom","dinnerroom","neesh","bofue","antreh","salon","living","rokna","kitchen","office","library","cartoons","cases","fridge","deep_freezer","wacher","cocker","dish_wacher","heater","tv","condiner","microwave","nagaf","carpet","martb","tables","shoser","workers","workers_plus","car","car_plus","carpenter_num","carpenter","kitchen_worker_num","kitchen_worker","nagaf_worker_num","nagaf_worker","condiner_tech_num","condiner_tech","casing_num","casing","total","notes","status"];
 
 	public function workers()
 	{
